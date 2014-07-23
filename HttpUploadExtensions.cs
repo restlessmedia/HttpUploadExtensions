@@ -65,7 +65,7 @@ namespace restlessmedia.Mvc.Api.Extensions
         public static string UnquotedFileName(this ContentDispositionHeaderValue contentDisposition)
         {
             string fileName = contentDisposition != null ? contentDisposition.FileName : null;
-            return string.IsNullOrEmpty(fileName) ? fileName : fileName.Trim('"');
+            return string.IsNullOrEmpty(fileName) ? fileName : Path.GetFileName(fileName.Trim('"'));
         }
 
         public static bool IsComplete(this ContentRangeHeaderValue range)
